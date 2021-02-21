@@ -6,10 +6,11 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
+import { BdbDetailsComponent } from './views/details/details.component';
 import { BdbListComponent } from './views/list/list.component';
 
 @NgModule({
-  declarations: [AppComponent, BdbListComponent, TableComponent],
+  declarations: [AppComponent, BdbListComponent, TableComponent, BdbDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [{ provide: 'BACKEND_URL', useValue: environment.backendUrl }],
   bootstrap: [AppComponent],

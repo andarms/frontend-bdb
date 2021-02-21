@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { BdbDetailsComponent } from './views/details/details.component';
 import { BdbListComponent } from './views/list/list.component';
 
-const routes: Routes = [{ path: '', component: BdbListComponent }];
+const routes: Routes = [
+  { path: '', component: BdbListComponent },
+  { path: 'persons/:id', component: BdbDetailsComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

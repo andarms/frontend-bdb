@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col">
+    <h2>Person deatils</h2>
+  </div>
+</div>
+<div class="row my-5">
+  <div class="col">
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <tr>
+          <td>
+            <h6>Identification</h6>
+          </td>
+          <td>{{ model.identification }}</td>
+        </tr>
+        <tr>
+          <td><h6>Full Name</h6></td>
+          <td>{{ model.fullname }}</td>
+        </tr>
+        <tr>
+          <td><h6>Gender</h6></td>
+          <td>{{ model.gender }}</td>
+        </tr>
+        <tr>
+          <td><h6>Birth Date</h6></td>
+          <td>{{ model.birth | date: 'yyyy/MM/dd' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h4>Relatives</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">Father:</div>
+  <div class="col-md-6">Mother:</div>
+  <div class="col-md-12 mt-3">
+    <div>Children:</div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col">
+    <button routerLink="/" class="btn btn-link float-end">back to person list</button>
+  </div>
+</div>
