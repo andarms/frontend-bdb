@@ -10,7 +10,7 @@
     <tr *ngFor="let person of data">
       <td>{{ person.identification }}</td>
       <td>{{ person.fullname }}</td>
-      <td>{{ person.gender }}</td>
+      <td>{{ person.gender | bdbGender }}</td>
       <td>{{ person.birth | date: 'yyyy/MM/dd' }}</td>
       <td>
         <a routerLink="/persons/{{ person.id }}">details</a>
