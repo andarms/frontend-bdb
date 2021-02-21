@@ -30,4 +30,8 @@ export class BdbDetailsComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+
+  get hasRelatives() {
+    return this.model.relatives?.father || this.model.relatives?.mother || this.model.relatives?.children;
+  }
 }
