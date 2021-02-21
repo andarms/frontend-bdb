@@ -14,7 +14,7 @@
   <bdb-input class="col-md-6" label="Identification" formControlName="identification"></bdb-input>
   <bdb-input class="col-md-6" label="Full Name" formControlName="fullname"></bdb-input>
   <bdb-input class="col-md-6" label="Birth Date" type="date" formControlName="birth"></bdb-input>
-  <bdb-input class="col-md-3" label="Gender" formControlName="gender"></bdb-input>
+  <bdb-select class="col-md-3" label="Gender" formControlName="gender" [options]="genderOptions"></bdb-select>
   <div class="col-md-12 mt-3">
     <button class="btn btn-primary" (click)="create()" [disabled]="saving">{{ saving ? 'saving...' : 'Create Person' }}</button>
   </div>

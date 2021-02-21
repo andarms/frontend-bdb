@@ -1,0 +1,11 @@
+<div class="mb-3" [ngClass]="{ 'text-danger': this.showError }">
+  <h6>{{ label }}</h6>
+  <select class="form-select" [formControl]="bridgeControl" (change)="update()">
+    <option *ngFor="let opt of options" [value]="opt.value">{{ opt.label }}</option>
+  </select>
+  <div *ngIf="this.showError">
+    <div *ngFor="let e of errors">
+      {{ e }}
+    </div>
+  </div>
+</div>

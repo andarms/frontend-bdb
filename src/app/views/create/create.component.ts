@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject, of } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
 
+import { OptionValue } from '../../components/select/select.component';
 import { Genders, Person } from '../../models/person.model';
 import { PersonService } from '../../services/person.service';
 
@@ -19,6 +20,11 @@ export class BdbCreateComponent implements OnInit, OnDestroy {
 
   destroy$ = new Subject();
 
+  genderOptions: OptionValue[] = [
+    { label: 'Male', value: Genders.Male },
+    { label: 'female', value: Genders.Female },
+  ];
+
   constructor(private fb: FormBuilder, private router: Router, private personService: PersonService) {}
 
   ngOnInit(): void {
@@ -27,6 +33,7 @@ export class BdbCreateComponent implements OnInit, OnDestroy {
       fullname: [, [Validators.required]],
       gender: [Genders.Male, [Validators.required]],
       birth: [, [Validators.required]],
+      test: [,],
     });
   }
 

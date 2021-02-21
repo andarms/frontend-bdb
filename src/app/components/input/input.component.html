@@ -7,9 +7,8 @@
     [type]="type"
     class="w-100 form-control"
     [ngClass]="{
-      invalid: this.showError
+      'is-invalid': this.showError
     }"
-    pInputText
     (input)="update()"
   />
   <div *ngIf="this.showError">
