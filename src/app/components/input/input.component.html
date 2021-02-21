@@ -1,0 +1,20 @@
+<div class="mb-3" [ngClass]="{ 'text-danger': this.showError }">
+  <h6>{{ label }}</h6>
+  <input
+    [formControl]="bridgeControl"
+    [id]="id"
+    [name]="id"
+    [type]="type"
+    class="w-100 form-control"
+    [ngClass]="{
+      invalid: this.showError
+    }"
+    pInputText
+    (input)="update()"
+  />
+  <div *ngIf="this.showError">
+    <div *ngFor="let e of errors">
+      {{ e }}
+    </div>
+  </div>
+</div>
