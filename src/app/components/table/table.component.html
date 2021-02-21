@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <th>Identification</th>
+    <th>Full Name</th>
+    <th>Gender</th>
+    <th>Birth Date</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of data">
+      <td>{{ person.identification }}</td>
+      <td>{{ person.fullname }}</td>
+      <td>{{ person.gender }}</td>
+      <td>{{ person.birth | date: 'yyyy/MM/dd' }}</td>
+      <td>
+        <a routerLink="/perons/{{ person.id }}">deatils</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
