@@ -1,5 +1,6 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -16,10 +17,37 @@ export class BdbDetailsComponent implements OnInit, OnDestroy {
 
   destroy$ = new Subject();
 
-  constructor(private route: ActivatedRoute, private person: PersonService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private person: PersonService) {}
+
+  get hasRelatives() {
+    return this.model?.relatives?.father || this.model?.relatives?.mother || this.model?.relatives?.children;
+  }
+
+  get father() {
+    return this.model?.relatives?.father;
+  }
+
+  get mother() {
+    return this.model?.relatives?.mother;
+  }
+
+  get children() {
+    return this.model?.relatives?.children;
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
+    this.loadData(id);
+    this.route.params.pipe(takeUntil(this.destroy$)).subscribe((params) => {
+      const id = params.id;
+      this.loadData(id);
+    });
+  }
+
+  loadData(id: number) {
+    if (!id) {
+      return;
+    }
     this.person
       .find(id)
       .pipe(takeUntil(this.destroy$))
@@ -31,7 +59,7 @@ export class BdbDetailsComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  get hasRelatives() {
-    return this.model.relatives?.father || this.model.relatives?.mother || this.model.relatives?.children;
+  navigate(id: number) {
+    this.router.navigate(['/persons', id.toString()]);
   }
 }

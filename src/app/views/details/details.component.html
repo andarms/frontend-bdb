@@ -5,7 +5,7 @@
 </div>
 <div class="row my-5">
   <div class="col">
-    <table class="table table-striped border-primary table-bordered">
+    <table class="table table-striped border-primary table-bordered" *ngIf="model">
       <thead class="table-dark">
         <tr>
           <td colspan="2"></td>
@@ -38,10 +38,17 @@
   <div class="col-md-12">
     <h4>Relatives</h4>
   </div>
-  <div class="col-md-6">Father:</div>
-  <div class="col-md-6">Mother:</div>
-  <div class="col-md-12 mt-3">
+  <div class="col-md-6" *ngIf="father">
+    Father: <a [routerLink]="" (click)="navigate(father.id)"> {{ father.identification }} - {{ father.fullname }} </a>
+  </div>
+  <div class="col-md-6" *ngIf="mother">
+    Mother: <a [routerLink]="" (click)="navigate(mother.id)"> {{ mother.identification }} - {{ mother.fullname }} </a>
+  </div>
+  <div class="col-md-12 mt-3" *ngIf="children?.length">
     <div>Children:</div>
+    <div *ngFor="let child of children">
+      <a [routerLink]="" (click)="navigate(child.id)"> {{ child.identification }} - {{ child.fullname }} </a>
+    </div>
   </div>
 </div>
 

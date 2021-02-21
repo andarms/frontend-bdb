@@ -25,5 +25,7 @@ export class PersonService {
     return this.http.post(this._endpoint, person);
   }
 
-  adopt({ mother, father, children }: PersonRelatives) {}
+  adopt(relativesIds: PersonRelatives) {
+    return this.http.post(`${this._endpoint}/adopt`, relativesIds);
+  }
 }

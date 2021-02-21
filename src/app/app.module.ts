@@ -7,15 +7,26 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BdcInputComponent } from './components/input/input.component';
+import { SelectComponent } from './components/select/select.component';
 import { TableComponent } from './components/table/table.component';
 import { GenderPipe } from './pipes/gender.pipe';
+import { BdbAdoptComponent } from './views/adopt/adopt.component';
 import { BdbCreateComponent } from './views/create/create.component';
 import { BdbDetailsComponent } from './views/details/details.component';
 import { BdbListComponent } from './views/list/list.component';
-import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
-  declarations: [AppComponent, BdbListComponent, TableComponent, BdbDetailsComponent, GenderPipe, BdbCreateComponent, BdcInputComponent, SelectComponent],
+  declarations: [
+    AppComponent,
+    BdbListComponent,
+    TableComponent,
+    BdbDetailsComponent,
+    GenderPipe,
+    BdbCreateComponent,
+    BdcInputComponent,
+    SelectComponent,
+    BdbAdoptComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [{ provide: 'BACKEND_URL', useValue: environment.backendUrl }],
   bootstrap: [AppComponent],

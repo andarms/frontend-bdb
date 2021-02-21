@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col">
+    <h2>Adoption Form</h2>
+  </div>
+</div>
+<form class="row my-5" [formGroup]="form">
+  <div class="col-12" *ngIf="error.length">
+    <div class="alert alert-danger">
+      <div *ngFor="let e of error">
+        {{ e }}
+      </div>
+    </div>
+  </div>
+  <bdb-select class="col-md-6" label="Father" formControlName="fatherId" [options]="males"></bdb-select>
+  <bdb-select class="col-md-6" label="Mother" formControlName="motherId" [options]="females"></bdb-select>
+  <bdb-select class="col-md-6" label="Mother" formControlName="childId" [options]="children"></bdb-select>
+  <div class="col-md-12 mt-3">
+    <button class="btn btn-primary" (click)="adopt()" [disabled]="saving">{{ saving ? 'saving...' : 'Adopt Person' }}</button>
+  </div>
+</form>
+<div class="row">
+  <div class="col">
+    <button routerLink="/" class="btn btn-link float-end" [disabled]="saving">back to person list</button>
+  </div>
+</div>
