@@ -19,3 +19,9 @@ export interface PersonRelatives {
   mother: Person;
   children: Person[];
 }
+
+export interface PersonRelativesIds {
+  fatherId: number;
+  motherId: number;
+  childId: number;
+}

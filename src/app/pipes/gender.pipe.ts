@@ -5,7 +5,7 @@ import { Genders } from '../models/person.model';
 @Pipe({
   name: 'bdbGender',
 })
-export class GenderPipe implements PipeTransform {
+export class BdbGenderPipe implements PipeTransform {
   transform(value: string): unknown {
     if (value === Genders.Male) {
       return 'Male';

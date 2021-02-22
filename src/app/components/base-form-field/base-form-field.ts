@@ -54,7 +54,7 @@ export class BdbBaseFormFieldComponent implements ControlValueAccessor {
       return false;
     }
     const { dirty, touched } = this.control;
-    return this.control.invalid ? dirty! || touched! : false;
+    return (dirty || touched) ?? false ? this.control.invalid ?? false : false;
   }
 
   get errors(): any[] {

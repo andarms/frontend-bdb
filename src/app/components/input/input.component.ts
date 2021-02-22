@@ -7,7 +7,7 @@ import { BdbBaseFormFieldComponent } from '../base-form-field/base-form-field';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
 })
-export class BdcInputComponent extends BdbBaseFormFieldComponent {
+export class BdbInputComponent extends BdbBaseFormFieldComponent {
   @Input() type: string = 'text';
   @Input() id: string = '';
 }

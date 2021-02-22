@@ -6,7 +6,7 @@ import { Person } from 'src/app/models/person.model';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class BdbTableComponent implements OnInit {
   @Input() data: Person[] = [];
 
   constructor() {}

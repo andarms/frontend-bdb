@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Person, PersonRelatives } from '../models/person.model';
+import { Person, PersonRelativesIds } from '../models/person.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class PersonService {
     return this.http.post(this._endpoint, person);
   }
 
-  adopt(relativesIds: PersonRelatives) {
+  adopt(relativesIds: PersonRelativesIds) {
     return this.http.post(`${this._endpoint}/adopt`, relativesIds);
   }
 }
